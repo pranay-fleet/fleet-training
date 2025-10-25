@@ -5,7 +5,7 @@ import torch
 from transformers import (
     AutoProcessor,
     AutoTokenizer,
-    Qwen2VLForConditionalGeneration,
+    Qwen2_5_VLForConditionalGeneration,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
@@ -24,7 +24,7 @@ def load_qwen25_vl(
     """
     processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=True)
 
-    model = Qwen2VLForConditionalGeneration.from_pretrained(
+    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
             model_id,
             torch_dtype=dtype,
             low_cpu_mem_usage=True,

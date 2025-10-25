@@ -20,6 +20,8 @@ class RepeatableEpisodeDataset(Dataset):
         self.env = env
         self.processor = processor
         self.max_length = max_length
+        # Add column_names attribute for compatibility with TRL trainer
+        self.column_names = ["prompt", "images", "correct_index"]
 
     def __len__(self):
         # Endless-ish; trainer controls total steps. You can make this larger if you want epoch-like semantics.
