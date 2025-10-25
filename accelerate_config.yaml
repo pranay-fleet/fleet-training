@@ -1,0 +1,19 @@
+compute_environment: LOCAL_MACHINE
+distributed_type: DEEPSPEED
+deepspeed_config:
+  zero_stage: 3
+  offload_optimizer_device: none
+  offload_param_device: none
+  zero3_init_flag: true
+  overlap_comm: true
+  reduce_bucket_size: 5e8
+  stage3_prefetch_bucket_size: 2e8
+  stage3_param_persistence_threshold: 1e6
+  round_robin_gradients: true
+  gradient_accumulation_steps: 4
+  fp16: false
+  bf16: true
+machine_rank: 0
+num_processes: 8
+gpu_ids: all
+mixed_precision: bf16
